@@ -1,0 +1,21 @@
+/* THIS PROJECT IS A PLAYGROUND TO TEST STUFF, THAT'S WHY IM USING BOTH TAILWIND AND CSS AND IT KINDA LOOKS UGLY BUT IT'S JUST TESTING AND PLAYING AROUND 🙂🙂🙂🙂 */
+
+.bug {
+  background: green;
+  color: whitesmoke;
+}
+
+.steel {
+  background-color: darkgrey;
+  color: black;
+}
+
+.typeCard {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+  min-width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
