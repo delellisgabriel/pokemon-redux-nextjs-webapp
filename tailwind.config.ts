@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import { types, generateSafeList } from "./tailwind-custom/types";
+
+const safelist = [...generateSafeList()];
 
 export default {
   content: [
@@ -11,8 +14,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        ...types,
       },
     },
   },
+  safelist,
   plugins: [],
 } satisfies Config;

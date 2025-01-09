@@ -1,5 +1,6 @@
 "use client";
 import { useGetPokemonListPageQuery } from "@/lib/services/pokemon";
+import Link from "next/link";
 import { useState } from "react";
 
 const INITIAL_POKEMON_LIST_PAGE: string = "offset=0&limit=151";
@@ -33,25 +34,29 @@ const PokemonList = () => {
               {data.results.map((pokemon) => (
                 <tr key={pokemon.name}>
                   <th scope="row">
-                    <a href="">{pokemon.name}</a>
+                    <Link href={`/pokemon/${pokemon.name}`}>
+                      {pokemon.name}
+                    </Link>
                   </th>
                 </tr>
               ))}
+              <tr>
+                <th>
+                  <button
+                    disabled={!data?.previous}
+                    onClick={() => setPage(getUrlParams(data?.previous ?? ""))}
+                  >
+                    previous
+                  </button>
+                  <button
+                    disabled={!data?.next}
+                    onClick={() => setPage(getUrlParams(data?.next ?? ""))}
+                  >
+                    next
+                  </button>
+                </th>
+              </tr>
             </tbody>
-            <div>
-              <button
-                disabled={!data?.previous}
-                onClick={() => setPage(getUrlParams(data?.previous ?? ""))}
-              >
-                previous
-              </button>
-              <button
-                disabled={!data?.next}
-                onClick={() => setPage(getUrlParams(data?.next ?? ""))}
-              >
-                next
-              </button>
-            </div>
           </>
         )}
       </table>
